@@ -3,256 +3,191 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ganhar dinheiro no celular</title>
+<title>MoneyApp</title>
 
 <style>
 body {
   margin: 0;
-  font-family: Arial;
-  background: #0f0f0f;
+  font-family: Arial, sans-serif;
+  background: #0d0d0d;
   color: white;
+}
+
+/* TOPO */
+.topbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #111;
+  padding: 15px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+  z-index: 1000;
+}
+
+/* CONTEÚDO */
+.container {
+  padding: 70px 20px 90px;
 }
 
 /* HERO */
 .hero {
-  height: 100vh;
-  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)),
-              url('https://images.unsplash.com/photo-1605902711622-cfb43c4437d1');
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   text-align: center;
 }
 
 .hero h1 {
-  font-size: 28px;
+  font-size: 24px;
 }
 
 .hero p {
-  opacity: 0.8;
+  opacity: 0.7;
 }
 
-/* BOTÃO */
-.btn {
+/* BOTÃO PRINCIPAL */
+.main-btn {
   background: linear-gradient(135deg, #ff7a00, #ff3d00);
-  padding: 15px 25px;
-  border-radius: 8px;
-  color: white;
-  text-decoration: none;
-  display: inline-block;
-  margin-top: 20px;
+  padding: 16px;
+  border-radius: 10px;
+  margin-top: 15px;
+  display: block;
+  text-align: center;
   font-weight: bold;
-  cursor: pointer;
+  text-decoration: none;
+  color: white;
+  transition: 0.2s;
 }
 
-/* SEÇÃO */
-.section {
-  padding: 30px 20px;
+.main-btn:active {
+  transform: scale(0.95);
 }
 
+/* CARDS */
 .card {
   background: #1a1a1a;
   padding: 15px;
-  margin-bottom: 10px;
-  border-radius: 10px;
+  border-radius: 12px;
+  margin-top: 15px;
 }
 
-/* EMAIL BOX */
-.email-box {
+/* FORM */
+.form-box {
   background: #1a1a1a;
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 12px;
+  margin-top: 20px;
   text-align: center;
 }
 
 input {
-  padding: 12px;
-  width: 90%;
+  width: 100%;
+  padding: 14px;
+  border-radius: 8px;
   border: none;
-  border-radius: 6px;
   margin-top: 10px;
 }
 
-/* POPUP */
-.popup {
+/* NAV BAR */
+.navbar {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #1a1a1a;
-  padding: 15px;
-  border-radius: 10px;
-  display: none;
+  bottom: 0;
+  width: 100%;
+  background: #111;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
 }
 
-/* ANIMAÇÃO */
-.fade {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: 0.6s;
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 12px;
+  text-align: center;
 }
 
-.fade.show {
-  opacity: 1;
-  transform: translateY(0);
+.navbar a:active {
+  color: orange;
 }
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
-<section class="hero">
-  <div>
-    <h1>💰 Ganhe dinheiro com o seu celular</h1>
-    <p>Descubra métodos reais que estão funcionando em 2026</p>
-    <button class="btn" onclick="scrollToApps()">🚀 Começar agora</button>
-  </div>
-</section>
+<!-- TOPO -->
+<div class="topbar">
+  💰 MoneyApp
+</div>
 
-<!-- APPS -->
-<section id="apps" class="section fade">
-  <h2>📱 3 Apps que realmente pagam</h2>
+<!-- CONTEÚDO -->
+<div class="container">
 
-  <div class="card">
-    <h3>📋 App de tarefas</h3>
-    <p>Ganhe completando tarefas simples</p>
+  <div class="hero">
+    <h1>Ganhe dinheiro com o seu celular</h1>
+    <p>Métodos reais que funcionam em 2026</p>
+
+    <a href="#apps" class="main-btn">🚀 Começar agora</a>
   </div>
 
-  <div class="card">
-    <h3>🧠 App de pesquisas</h3>
-    <p>Responda perguntas e receba dinheiro</p>
+  <div id="apps">
+    <div class="card">
+      <h3>📋 Tarefas</h3>
+      <p>Complete tarefas simples e ganhe dinheiro</p>
+    </div>
+
+    <div class="card">
+      <h3>🧠 Pesquisas</h3>
+      <p>Responda perguntas e receba</p>
+    </div>
+
+    <div class="card">
+      <h3>🎬 Vídeos</h3>
+      <p>Ganhe assistindo conteúdos</p>
+    </div>
   </div>
 
-  <div class="card">
-    <h3>🎬 App de vídeos</h3>
-    <p>Ganhe assistindo conteúdos</p>
+  <div class="form-box">
+    <h2>Inscreva-se</h2>
+    <p>Email ou telefone</p>
+
+    <input type="text" id="contato" placeholder="Digite aqui">
+
+    <a href="#" class="main-btn" onclick="capturarLead()">💸 Quero começar</a>
   </div>
 
-  <button class="btn" onclick="mostrarEmail()">💸 Quero lista completa</button>
-</section>
+</div>
 
-<!-- EMAIL -->
-<section id="email" class="section fade" style="display:none;">
-  <div class="email-box">
-    <h2>📩 Receba a lista completa</h2>
-    <p>Digite seu email abaixo</p>
-
-    <input type="email" id="emailInput" placeholder="Seu email">
-    <br>
-    <button class="btn" onclick="capturarEmail()">📥 Receber agora</button>
-  </div>
-</section>
-
-<!-- POPUP -->
-<div class="popup" id="popup">
-  🔥 +1.200 pessoas já começaram hoje
+<!-- NAV BAR -->
+<div class="navbar">
+  <a href="#">🏠<br>Início</a>
+  <a href="#apps">📱<br>Apps</a>
+  <a href="#contato">📩<br>Entrar</a>
+  <a href="#" onclick="abrirWhats()">💬<br>Suporte</a>
 </div>
 
 <script>
-function scrollToApps() {
-  document.getElementById("apps").scrollIntoView({behavior:"smooth"});
-}
+function capturarLead() {
+  let contato = document.getElementById("contato").value;
 
-function mostrarEmail() {
-  document.getElementById("email").style.display = "block";
-  document.getElementById("email").scrollIntoView({behavior:"smooth"});
-}
-
-function capturarEmail() {
-  var email = document.getElementById("emailInput").value;
-
-  if(email === "") {
-    alert("Digite um email válido!");
+  if(!contato){
+    alert("Digite email ou número!");
     return;
   }
 
-  alert("Email capturado: " + email);
+  localStorage.setItem("lead", contato);
 
-  // 👉 AQUI você depois liga com monetização / lista real
+  let numero = "244955570950";
+  let msg = "Olá, quero começar a ganhar dinheiro online";
+
+  window.open("https://wa.me/" + numero + "?text=" + encodeURIComponent(msg), "_blank");
 }
 
-/* ANIMAÇÃO AO SCROLL */
-window.addEventListener("scroll", () => {
-  document.querySelectorAll(".fade").forEach(el => {
-    const pos = el.getBoundingClientRect().top;
-    if(pos < window.innerHeight - 50) {
-      el.classList.add("show");
-    }
-  });
-});
+function abrirWhats() {
+  let numero = "244955570950";
+  let msg = "Olá, preciso de ajuda";
 
-/* POPUP AUTOMÁTICO */
-setTimeout(() => {
-  document.getElementById("popup").style.display = "block";
-}, 4000);
+  window.open("https://wa.me/" + numero + "?text=" + encodeURIComponent(msg), "_blank");
+}
 </script>
-<!DOCTYPE html>
-<html lang="pt">
-<head>
-  <meta charset="UTF-8">
-  <title>Dinheiro no Celular</title>
-  <link rel="stylesheet" href="style.css">
-</head>
 
-<body>
-
-  <div class="hero">
-    <h1>💰 Ganhe dinheiro com o seu celular</h1>
-    <p>Descubra métodos reais que estão funcionando em 2026</p>
-
-    <a href="#oferta" class="btn">🚀 Começar agora</a>
-  </div>
-
-  <div id="oferta" class="cta-box">
-    <h2>💰 Quer começar a ganhar hoje?</h2>
-    <p>Receba a lista completa + apps que funcionam em Angola</p>
-
-    <input type="email" id="email" placeholder="Digite seu email">
-
-    <button onclick="capturarLead()">🚀 Quero começar agora</button>
-
-    <p class="mini">+1.200 pessoas já começaram</p>
-  </div>
-
-  <script src="script.js"></script>
-<a href="#" class="botao-fixo" onclick="capturarLead()">
-  💰 Começar
-</a>
-<a href="#" class="botao-fixo" onclick="capturarLead()">
-  💬 Falar agora
-</a>
-<a href="#" class="botao-fixo" onclick="capturarLead()">
-  💬
-</a>
-<div id="botaoContainer" class="botao-container">
-
-  <a href="#" class="botao-fixo-avancado" onclick="abrirWhats()">
-    💬 Falar agora
-  </a>
-
-  <span class="fechar-btn" onclick="fecharBotao()">✖</span>
-
-</div>
-<div class="menu">⋮</div>
-<p>Preparando seu acesso...</p>
-<div class="loader">
-  <p>🔓 Acesso sendo preparado<span class="dots"></span></p>
-
-  <div class="barra">
-    <div class="progresso" id="progresso"></div>
-  </div>
-
-  <p id="percent">0%</p>
-</div>
-<canvas id="matrix"></canvas>
-
-<div class="hack-texto">
-  <h1>🔓 Acessando sistema...</h1>
-  <p>Injetando dados<span class="dots"></span></p>
-</div>
-</body>
-</html>
 </body>
 </html>
