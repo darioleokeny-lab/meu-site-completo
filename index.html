@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ganhar dinheiro no celular</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  background: #0f0f0f;
+  color: white;
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)),
+              url('https://images.unsplash.com/photo-1605902711622-cfb43c4437d1');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 28px;
+}
+
+.hero p {
+  opacity: 0.8;
+}
+
+/* BOTÃO */
+.btn {
+  background: linear-gradient(135deg, #ff7a00, #ff3d00);
+  padding: 15px 25px;
+  border-radius: 8px;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* SEÇÃO */
+.section {
+  padding: 30px 20px;
+}
+
+.card {
+  background: #1a1a1a;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+/* EMAIL BOX */
+.email-box {
+  background: #1a1a1a;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+input {
+  padding: 12px;
+  width: 90%;
+  border: none;
+  border-radius: 6px;
+  margin-top: 10px;
+}
+
+/* POPUP */
+.popup {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #1a1a1a;
+  padding: 15px;
+  border-radius: 10px;
+  display: none;
+}
+
+/* ANIMAÇÃO */
+.fade {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.6s;
+}
+
+.fade.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <h1>💰 Ganhe dinheiro com o seu celular</h1>
+    <p>Descubra métodos reais que estão funcionando em 2026</p>
+    <button class="btn" onclick="scrollToApps()">🚀 Começar agora</button>
+  </div>
+</section>
+
+<!-- APPS -->
+<section id="apps" class="section fade">
+  <h2>📱 3 Apps que realmente pagam</h2>
+
+  <div class="card">
+    <h3>📋 App de tarefas</h3>
+    <p>Ganhe completando tarefas simples</p>
+  </div>
+
+  <div class="card">
+    <h3>🧠 App de pesquisas</h3>
+    <p>Responda perguntas e receba dinheiro</p>
+  </div>
+
+  <div class="card">
+    <h3>🎬 App de vídeos</h3>
+    <p>Ganhe assistindo conteúdos</p>
+  </div>
+
+  <button class="btn" onclick="mostrarEmail()">💸 Quero lista completa</button>
+</section>
+
+<!-- EMAIL -->
+<section id="email" class="section fade" style="display:none;">
+  <div class="email-box">
+    <h2>📩 Receba a lista completa</h2>
+    <p>Digite seu email abaixo</p>
+
+    <input type="email" id="emailInput" placeholder="Seu email">
+    <br>
+    <button class="btn" onclick="capturarEmail()">📥 Receber agora</button>
+  </div>
+</section>
+
+<!-- POPUP -->
+<div class="popup" id="popup">
+  🔥 +1.200 pessoas já começaram hoje
+</div>
+
+<script>
+function scrollToApps() {
+  document.getElementById("apps").scrollIntoView({behavior:"smooth"});
+}
+
+function mostrarEmail() {
+  document.getElementById("email").style.display = "block";
+  document.getElementById("email").scrollIntoView({behavior:"smooth"});
+}
+
+function capturarEmail() {
+  var email = document.getElementById("emailInput").value;
+
+  if(email === "") {
+    alert("Digite um email válido!");
+    return;
+  }
+
+  alert("Email capturado: " + email);
+
+  // 👉 AQUI você depois liga com monetização / lista real
+}
+
+/* ANIMAÇÃO AO SCROLL */
+window.addEventListener("scroll", () => {
+  document.querySelectorAll(".fade").forEach(el => {
+    const pos = el.getBoundingClientRect().top;
+    if(pos < window.innerHeight - 50) {
+      el.classList.add("show");
+    }
+  });
+});
+
+/* POPUP AUTOMÁTICO */
+setTimeout(() => {
+  document.getElementById("popup").style.display = "block";
+}, 4000);
+</script>
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Dinheiro no Celular</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="hero">
+    <h1>💰 Ganhe dinheiro com o seu celular</h1>
+    <p>Descubra métodos reais que estão funcionando em 2026</p>
+
+    <a href="#oferta" class="btn">🚀 Começar agora</a>
+  </div>
+
+  <div id="oferta" class="cta-box">
+    <h2>💰 Quer começar a ganhar hoje?</h2>
+    <p>Receba a lista completa + apps que funcionam em Angola</p>
+
+    <input type="email" id="email" placeholder="Digite seu email">
+
+    <button onclick="capturarLead()">🚀 Quero começar agora</button>
+
+    <p class="mini">+1.200 pessoas já começaram</p>
+  </div>
+
+  <script src="script.js"></script>
+<a href="#" class="botao-fixo" onclick="capturarLead()">
+  💰 Começar
+</a>
+<a href="#" class="botao-fixo" onclick="capturarLead()">
+  💬 Falar agora
+</a>
+<a href="#" class="botao-fixo" onclick="capturarLead()">
+  💬
+</a>
+<div id="botaoContainer" class="botao-container">
+
+  <a href="#" class="botao-fixo-avancado" onclick="abrirWhats()">
+    💬 Falar agora
+  </a>
+
+  <span class="fechar-btn" onclick="fecharBotao()">✖</span>
+
+</div>
+<div class="menu">⋮</div>
+<p>Preparando seu acesso...</p>
+<div class="loader">
+  <p>🔓 Acesso sendo preparado<span class="dots"></span></p>
+
+  <div class="barra">
+    <div class="progresso" id="progresso"></div>
+  </div>
+
+  <p id="percent">0%</p>
+</div>
+<canvas id="matrix"></canvas>
+
+<div class="hack-texto">
+  <h1>🔓 Acessando sistema...</h1>
+  <p>Injetando dados<span class="dots"></span></p>
+</div>
+</body>
+</html>
+</body>
+</html>
