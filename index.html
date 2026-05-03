@@ -3,10 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- VERIFICAÇÃO GOOGLE -->
+<meta name="google-site-verification" content="-6cGfpbnA9XoZYzmodx9Q_ummuvUsexZQG7UodlNCtM" />
 <title>Acessando...</title>
 
 <style>
-body {
+body{
   margin: 0;
   background: black;
   color: #00ff88;
@@ -14,38 +17,18 @@ body {
   overflow: hidden;
 }
 
-/* TEXTO CENTRAL */
-.hack-texto {
+canvas{
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.hack-text{
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-}
-
-.liberado {
-  opacity: 0;
-  font-size: 22px;
-  margin-top: 10px;
-}
-
-/* CLARÃO */
-.clarao {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: white;
-  opacity: 0;
-  pointer-events: none;
-}
-
-/* MATRIZ */
-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
 }
 </style>
 </head>
@@ -54,17 +37,14 @@ canvas {
 
 <canvas id="matrix"></canvas>
 
-<div class="hack-texto">
+<div class="hack-text">
   <h1>🔒 Acessando sistema</h1>
   <p>Injetando dados...</p>
   <p id="contador">3</p>
-  <p id="liberado" class="liberado">🔓 ACESSO LIBERADO</p>
+  <p id="liberado" style="opacity:0;">🔓 ACESSO LIBERADO</p>
 </div>
 
-<div id="clarao" class="clarao"></div>
-
 <script>
-// MATRIZ
 const canvas = document.getElementById("matrix");
 const ctx = canvas.getContext("2d");
 
@@ -76,18 +56,18 @@ const tamanho = 16;
 const colunas = canvas.width / tamanho;
 const gotas = Array(Math.floor(colunas)).fill(1);
 
-function desenhar() {
+function desenhar(){
   ctx.fillStyle = "rgba(0,0,0,0.05)";
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.fillRect(0,0,canvas.width,canvas.height);
 
   ctx.fillStyle = "#00ff88";
   ctx.font = tamanho + "px monospace";
 
-  for (let i = 0; i < gotas.length; i++) {
+  for(let i = 0; i < gotas.length; i++){
     const texto = letras.charAt(Math.floor(Math.random() * letras.length));
     ctx.fillText(texto, i * tamanho, gotas[i] * tamanho);
 
-    if (gotas[i] * tamanho > canvas.height && Math.random() > 0.975) {
+    if(gotas[i] * tamanho > canvas.height && Math.random() > 0.975){
       gotas[i] = 0;
     }
     gotas[i]++;
@@ -100,35 +80,19 @@ setInterval(desenhar, 50);
 let tempo = 3;
 const contador = document.getElementById("contador");
 const liberado = document.getElementById("liberado");
-const clarao = document.getElementById("clarao");
 
 const intervalo = setInterval(() => {
   tempo--;
-  contador.textContent = tempo;
+  contador.innerText = tempo;
 
-  if (tempo === 1) {
-    liberado.style.opacity = "1";
-
-    // vibração (telemóvel)
-    if (navigator.vibrate) {
-      navigator.vibrate([200, 100, 200]);
-    }
-
-    // clarão
-    clarao.style.opacity = "1";
-    setTimeout(() => {
-      clarao.style.opacity = "0";
-    }, 150);
-  }
-
-  if (tempo <= 0) {
+  if(tempo <= 0){
     clearInterval(intervalo);
+    liberado.style.opacity = "1";
 
     setTimeout(() => {
       window.location.href = "home.html";
-    }, 1000);
+    }, 2000);
   }
-
 }, 1000);
 </script>
 
